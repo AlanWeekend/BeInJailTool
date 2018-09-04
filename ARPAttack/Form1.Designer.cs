@@ -30,6 +30,19 @@
         {
             this.combDevice = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtGatewayMAC = new System.Windows.Forms.TextBox();
+            this.txtGatewayIP = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtLocalMAC = new System.Windows.Forms.TextBox();
+            this.txtLocalIP = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnScan = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
@@ -42,14 +55,24 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label11 = new System.Windows.Forms.Label();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label12 = new System.Windows.Forms.Label();
+            this.groupBox2.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPage4.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // combDevice
             // 
             this.combDevice.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combDevice.FormattingEnabled = true;
-            this.combDevice.Location = new System.Drawing.Point(59, 17);
+            this.combDevice.Location = new System.Drawing.Point(54, 9);
             this.combDevice.Name = "combDevice";
             this.combDevice.Size = new System.Drawing.Size(729, 20);
             this.combDevice.TabIndex = 0;
@@ -58,11 +81,137 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 20);
+            this.label1.Location = new System.Drawing.Point(6, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 12);
+            this.label1.Size = new System.Drawing.Size(29, 12);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Device";
+            this.label1.Text = "设备";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.txtGatewayMAC);
+            this.groupBox2.Controls.Add(this.txtGatewayIP);
+            this.groupBox2.Controls.Add(this.label9);
+            this.groupBox2.Controls.Add(this.label10);
+            this.groupBox2.Controls.Add(this.txtLocalMAC);
+            this.groupBox2.Controls.Add(this.txtLocalIP);
+            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Location = new System.Drawing.Point(8, 42);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(775, 81);
+            this.groupBox2.TabIndex = 3;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "本地设备信息";
+            // 
+            // txtGatewayMAC
+            // 
+            this.txtGatewayMAC.Location = new System.Drawing.Point(291, 52);
+            this.txtGatewayMAC.Name = "txtGatewayMAC";
+            this.txtGatewayMAC.Size = new System.Drawing.Size(138, 21);
+            this.txtGatewayMAC.TabIndex = 7;
+            // 
+            // txtGatewayIP
+            // 
+            this.txtGatewayIP.Location = new System.Drawing.Point(291, 25);
+            this.txtGatewayIP.Name = "txtGatewayIP";
+            this.txtGatewayIP.Size = new System.Drawing.Size(138, 21);
+            this.txtGatewayIP.TabIndex = 6;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(220, 55);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(47, 12);
+            this.label9.TabIndex = 5;
+            this.label9.Text = "网关MAC";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(220, 28);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(41, 12);
+            this.label10.TabIndex = 4;
+            this.label10.Text = "网关IP";
+            // 
+            // txtLocalMAC
+            // 
+            this.txtLocalMAC.Location = new System.Drawing.Point(65, 52);
+            this.txtLocalMAC.Name = "txtLocalMAC";
+            this.txtLocalMAC.Size = new System.Drawing.Size(138, 21);
+            this.txtLocalMAC.TabIndex = 3;
+            // 
+            // txtLocalIP
+            // 
+            this.txtLocalIP.Location = new System.Drawing.Point(65, 25);
+            this.txtLocalIP.Name = "txtLocalIP";
+            this.txtLocalIP.Size = new System.Drawing.Size(138, 21);
+            this.txtLocalIP.TabIndex = 2;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(6, 55);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(47, 12);
+            this.label8.TabIndex = 1;
+            this.label8.Text = "本机MAC";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 28);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(41, 12);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "本机IP";
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Location = new System.Drawing.Point(12, 12);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(803, 467);
+            this.tabControl1.TabIndex = 11;
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.richTextBox1);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Size = new System.Drawing.Size(795, 441);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "中华人民共和国网络安全法";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(3, 3);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.ReadOnly = true;
+            this.richTextBox1.Size = new System.Drawing.Size(789, 435);
+            this.richTextBox1.TabIndex = 0;
+            this.richTextBox1.Text = "";
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.groupBox1);
+            this.tabPage1.Controls.Add(this.groupBox2);
+            this.tabPage1.Controls.Add(this.label1);
+            this.tabPage1.Controls.Add(this.combDevice);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(795, 441);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "牢底坐穿ARP";
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
@@ -77,12 +226,12 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(13, 59);
+            this.groupBox1.Location = new System.Drawing.Point(8, 129);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(775, 379);
-            this.groupBox1.TabIndex = 2;
+            this.groupBox1.Size = new System.Drawing.Size(775, 303);
+            this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "ARPAttack";
+            this.groupBox1.Text = "ARP";
             // 
             // btnScan
             // 
@@ -99,13 +248,13 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(105, 259);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(65, 12);
+            this.label6.Size = new System.Drawing.Size(71, 12);
             this.label6.TabIndex = 9;
-            this.label6.Text = "the 0 time";
+            this.label6.Text = "send 0 time";
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(8, 259);
+            this.btnStart.Location = new System.Drawing.Point(8, 254);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(75, 23);
             this.btnStart.TabIndex = 8;
@@ -115,29 +264,32 @@
             // 
             // txtRecipientMAC
             // 
-            this.txtRecipientMAC.Location = new System.Drawing.Point(107, 160);
+            this.txtRecipientMAC.Location = new System.Drawing.Point(131, 160);
             this.txtRecipientMAC.Name = "txtRecipientMAC";
+            this.txtRecipientMAC.ReadOnly = true;
             this.txtRecipientMAC.Size = new System.Drawing.Size(164, 21);
             this.txtRecipientMAC.TabIndex = 7;
             // 
             // txtRecipientIP
             // 
-            this.txtRecipientIP.Location = new System.Drawing.Point(107, 117);
+            this.txtRecipientIP.Location = new System.Drawing.Point(131, 117);
             this.txtRecipientIP.Name = "txtRecipientIP";
             this.txtRecipientIP.Size = new System.Drawing.Size(164, 21);
             this.txtRecipientIP.TabIndex = 6;
             // 
             // txtSenderMAC
             // 
-            this.txtSenderMAC.Location = new System.Drawing.Point(107, 76);
+            this.txtSenderMAC.Location = new System.Drawing.Point(131, 76);
             this.txtSenderMAC.Name = "txtSenderMAC";
+            this.txtSenderMAC.ReadOnly = true;
             this.txtSenderMAC.Size = new System.Drawing.Size(164, 21);
             this.txtSenderMAC.TabIndex = 5;
             // 
             // txtSenderIP
             // 
-            this.txtSenderIP.Location = new System.Drawing.Point(107, 36);
+            this.txtSenderIP.Location = new System.Drawing.Point(131, 36);
             this.txtSenderIP.Name = "txtSenderIP";
+            this.txtSenderIP.ReadOnly = true;
             this.txtSenderIP.Size = new System.Drawing.Size(164, 21);
             this.txtSenderIP.TabIndex = 4;
             // 
@@ -146,52 +298,100 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(6, 163);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(83, 12);
+            this.label5.Size = new System.Drawing.Size(119, 12);
             this.label5.TabIndex = 3;
-            this.label5.Text = "Recipient MAC";
+            this.label5.Text = "目标MAC（自动检测）";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(6, 120);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(77, 12);
+            this.label4.Size = new System.Drawing.Size(113, 12);
             this.label4.TabIndex = 2;
-            this.label4.Text = "Recipient IP";
+            this.label4.Text = "目标IP（手动填写）";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(6, 79);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 12);
+            this.label3.Size = new System.Drawing.Size(107, 12);
             this.label3.TabIndex = 1;
-            this.label3.Text = "Sender MAC";
+            this.label3.Text = "源MAC（随机生成）";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(6, 39);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 12);
+            this.label2.Size = new System.Drawing.Size(89, 12);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Sender IP";
+            this.label2.Text = "源IP（网关IP）";
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.label11);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(795, 441);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "牢底坐穿TCP";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label11.Location = new System.Drawing.Point(3, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(77, 29);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "TODO";
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.label12);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(795, 441);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "牢底坐穿刀";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label12.Location = new System.Drawing.Point(3, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(77, 29);
+            this.label12.TabIndex = 1;
+            this.label12.Text = "TODO";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.combDevice);
+            this.ClientSize = new System.Drawing.Size(824, 490);
+            this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
-            this.Text = "ARPAttack by H2O";
+            this.Text = "牢底坐穿工具箱 by H2O";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -199,18 +399,35 @@
 
         private System.Windows.Forms.ComboBox combDevice;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtLocalIP;
+        private System.Windows.Forms.TextBox txtLocalMAC;
+        private System.Windows.Forms.TextBox txtGatewayMAC;
+        private System.Windows.Forms.TextBox txtGatewayIP;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnScan;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.TextBox txtRecipientMAC;
         private System.Windows.Forms.TextBox txtRecipientIP;
         private System.Windows.Forms.TextBox txtSenderMAC;
         private System.Windows.Forms.TextBox txtSenderIP;
-        private System.Windows.Forms.Button btnStart;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button btnScan;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
     }
 }
 
