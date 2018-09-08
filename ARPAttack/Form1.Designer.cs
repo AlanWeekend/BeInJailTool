@@ -58,6 +58,11 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label11 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.textBoxCMD = new System.Windows.Forms.TextBox();
+            this.richTextShell = new System.Windows.Forms.RichTextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBoxCKnifePasswd = new System.Windows.Forms.TextBox();
+            this.textCKnifeURL = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -352,6 +357,11 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.textBoxCMD);
+            this.tabPage3.Controls.Add(this.richTextShell);
+            this.tabPage3.Controls.Add(this.button1);
+            this.tabPage3.Controls.Add(this.textBoxCKnifePasswd);
+            this.tabPage3.Controls.Add(this.textCKnifeURL);
             this.tabPage3.Controls.Add(this.label12);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
@@ -360,15 +370,57 @@
             this.tabPage3.Text = "牢底坐穿刀";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // textBoxCMD
+            // 
+            this.textBoxCMD.Location = new System.Drawing.Point(3, 415);
+            this.textBoxCMD.Name = "textBoxCMD";
+            this.textBoxCMD.Size = new System.Drawing.Size(777, 21);
+            this.textBoxCMD.TabIndex = 6;
+            this.textBoxCMD.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxCMD_KeyUp);
+            // 
+            // richTextShell
+            // 
+            this.richTextShell.Location = new System.Drawing.Point(3, 34);
+            this.richTextShell.Name = "richTextShell";
+            this.richTextShell.ReadOnly = true;
+            this.richTextShell.Size = new System.Drawing.Size(777, 375);
+            this.richTextShell.TabIndex = 5;
+            this.richTextShell.Text = "";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(705, 4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "连接";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // textBoxCKnifePasswd
+            // 
+            this.textBoxCKnifePasswd.Location = new System.Drawing.Point(592, 6);
+            this.textBoxCKnifePasswd.Name = "textBoxCKnifePasswd";
+            this.textBoxCKnifePasswd.Size = new System.Drawing.Size(107, 21);
+            this.textBoxCKnifePasswd.TabIndex = 3;
+            this.textBoxCKnifePasswd.Text = "abcd";
+            // 
+            // textCKnifeURL
+            // 
+            this.textCKnifeURL.Location = new System.Drawing.Point(3, 6);
+            this.textCKnifeURL.Name = "textCKnifeURL";
+            this.textCKnifeURL.Size = new System.Drawing.Size(582, 21);
+            this.textCKnifeURL.TabIndex = 2;
+            this.textCKnifeURL.Text = "http://127.0.0.1/test.php";
+            // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label12.Location = new System.Drawing.Point(3, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(77, 29);
+            this.label12.Size = new System.Drawing.Size(0, 29);
             this.label12.TabIndex = 1;
-            this.label12.Text = "TODO";
             // 
             // Form1
             // 
@@ -377,6 +429,7 @@
             this.ClientSize = new System.Drawing.Size(824, 490);
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "牢底坐穿工具箱 by H2O";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox2.ResumeLayout(false);
@@ -428,6 +481,11 @@
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox textBoxCKnifePasswd;
+        private System.Windows.Forms.TextBox textCKnifeURL;
+        private System.Windows.Forms.RichTextBox richTextShell;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBoxCMD;
     }
 }
 

@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ARPTool.cs" />
+    <Compile Include="CKnife.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -163,11 +163,11 @@ namespace ARPAttack
         }
 
         /// <summary>
-        /// 扫描以获取本地局域网的IP和Mac地址映射
+        /// 发送ARP请求包，根据返回的应答包获取MAC地址
         /// </summary>
         public void ScanLAN(string recipientIP,string senderMAC,string senderIP)
         {
-            // 构造Arp请求包,挨个轮询ip
+            // 构造Arp请求包
             var arpPackets = BuildRequest(IPAddress.Parse(recipientIP), PhysicalAddress.Parse(senderMAC), IPAddress.Parse(senderIP));
 
             //创建一个“tcpdump”过滤器，只允许读取arp回复
@@ -196,22 +196,21 @@ namespace ARPAttack
 
                     //read the next packet from the network
                     var reply = _device.GetNextPacket();    //获取网卡中的下一个包，过滤出ARP
-                    if (reply == null)
+
+                    if (reply == null)  //下一个包为空时，跳过本次循环
                     {
                         continue;
                     }
 
-                    // parse the packet
+                    // parse the packet 解析数据包
                     var packet = PacketDotNet.Packet.ParsePacket(reply.LinkLayerType, reply.Data);
 
-                    // is this an arp packet?
+                    // is this an arp packet? 这是一个arp数据包吗？
                     var arpPacket = PacketDotNet.ARPPacket.GetEncapsulated(packet);
                     if (arpPacket == null)
                     {
                         continue;
                     }
-
-                    //MessageBox.Show(arpPacket.SenderProtocolAddress.ToString()+"\r\n"+recipientIP);
 
                     //if this is the reply we're looking for, stop  //ARP包中的源主机IP 等于 UI中的目标主机IP
                     if (arpPacket.SenderProtocolAddress.ToString().Equals(recipientIP))
