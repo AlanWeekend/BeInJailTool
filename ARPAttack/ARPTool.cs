@@ -191,6 +191,7 @@ namespace ARPAttack
                     {
                         // inject the packet to the wire 发送请求包
                         _device.SendPacket(arpPackets);
+                        MessageBox.Show("已发送");
                         lastRequestTime = DateTime.Now;
                     }
 
@@ -215,6 +216,7 @@ namespace ARPAttack
                     //if this is the reply we're looking for, stop  //ARP包中的源主机IP 等于 UI中的目标主机IP
                     if (arpPacket.SenderProtocolAddress.ToString().Equals(recipientIP))
                     {
+                        MessageBox.Show("已找到");
                         // 通知事件 -更新靶机MAC
                         if (ResolvedEvent != null)
                         {

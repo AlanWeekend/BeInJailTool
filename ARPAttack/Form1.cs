@@ -104,7 +104,7 @@ namespace ARPAttack
             {
                 arpTool = new ARPTool(device);
                 arpTool.ScanStopedEvent += arpTool_ScanStopedEvent;
-                //arpTool.ResolvedEvent += arpTool_ResolvedEvent;
+                arpTool.ResolvedEvent += arpTool_ResolvedEvent;
                 arpTool.ResolvedTimeEvent += arpTool_ResolvedTimeEvent;
                 txtLocalIP.Text = arpTool.LocalIP.ToString();
                 txtLocalMAC.Text = Regex.Replace(arpTool.LocalMAC.ToString(), @"(\w{2})", "$1-").Trim('-');

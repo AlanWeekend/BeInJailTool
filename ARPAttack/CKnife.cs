@@ -39,23 +39,24 @@ namespace ARPAttack
         /// <summary>
         /// 返回当前执行结果
         /// </summary>
-        /// <returns></returns>
+        /// <returns>CMD命令执行结果</returns>
         public string ShowResult(string cmd)
         {
-            string content = GetReturnCMD(cmd);
-            string cmdPath = path;
+            //string content = GetReturnCMD(cmd); //获取页面执行结果
+            //string cmdPath = path;  //路径
             //MessageBox.Show(cmdPath);
             //MessageBox.Show(content);
 
+            //return cmdPath + ">" + cmd + "\r\n" +content+"\r\n"+cmdPath;
 
-            return cmdPath + ">" + cmd + "\r\n" +content+"\r\n"+cmdPath;
+            return path + ">" + cmd + "\r\n" + GetReturnCMD(cmd) + "\r\n" + path+">\r\n";   //返回CMD命令执行结果。
         }
 
         /// <summary>
         /// 执行PHP代码返回网页结果
         /// </summary>
-        /// <param name="cmd"></param>
-        /// <returns></returns>
+        /// <param name="cmd">要执行的PHP代码</param>
+        /// <returns>页面输出结果</returns>
         string GetReturnPHP(string cmd)
         {
 
@@ -73,10 +74,10 @@ namespace ARPAttack
         }
 
         /// <summary>
-        /// 执行PHP代码返回网页结果
+        /// 执行CMD命令返回网页结果
         /// </summary>
-        /// <param name="cmd"></param>
-        /// <returns></returns>
+        /// <param name="cmd">要执行的CMD命令</param>
+        /// <returns>页面返回结果</returns>
         string GetReturnCMD(string cmd)
         {
             cmd = string.Format("cmd &cd /d \"{0}\" &{1} &echo [S]&cd &echo [E]", path, cmd);  //cmd命令
@@ -114,7 +115,7 @@ namespace ARPAttack
 
             //MessageBox.Show("1"+cmdPath+"1");
 
-            path = cmdPath;
+            path = cmdPath; //更新路径
 
             return s;
         }
