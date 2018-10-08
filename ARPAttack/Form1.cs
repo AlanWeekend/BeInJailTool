@@ -50,22 +50,31 @@ namespace ARPAttack
         {
             richTextBox1.LoadFile("Law.rtf");
 
-            devicesList = LibPcapLiveDeviceList.Instance;   //获取本机所有网卡
-
-            //显示网卡详细信息
-            //for (int i = 0; i < devicesList.Count; i++)
-            //{
-            //    MessageBox.Show(devicesList[i].ToString());
-            //}
-
-            if (devicesList.Count < 1)
+            try
             {
-                throw new Exception("没有发现本机上的网络设备");
+                devicesList = LibPcapLiveDeviceList.Instance;
+                //显示网卡详细信息
+                //for (int i = 0; i < devicesList.Count; i++)
+                //{
+                //    MessageBox.Show(devicesList[i].ToString());
+                //}
+
+                if (devicesList.Count < 1)
+                {
+                    throw new Exception("没有发现本机上的网络设备");
+                }
+
+                device = devicesList[0];
+
+                combDevice.DataSource = devicesList;
             }
+            catch
+            {
+                MessageBox.Show("你没有安装WinPcap，请在打开的网站中下载安装WinPacp后，重启本软件");
+                System.Diagnostics.Process.Start("https://www.winpcap.org/");
+            }//获取本机所有网卡
 
-            device = devicesList[0];
 
-            combDevice.DataSource = devicesList;
         }
 
         private void btnStart_Click(object sender, EventArgs e)
@@ -112,6 +121,7 @@ namespace ARPAttack
                 txtGatewayMAC.Text = Regex.Replace(arpTool.GetwayMAC.ToString(), @"(\w{2})", "$1-").Trim('-');
                 txtSenderIP.Text = arpTool.GetwayIP.ToString();
                 txtSenderMAC.Text = Regex.Replace(GetRandomPhysicalAddress().ToString(), @"(\w{2})", "$1-").Trim('-');
+                
             }
             else
             {

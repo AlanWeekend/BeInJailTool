@@ -27,6 +27,8 @@ namespace ARPAttack
 
         public PhysicalAddress GetwayMAC { get; private set; }  //网关MAC
 
+        public IPAddress Mask { get; set; } //子网掩码
+
         private TimeSpan timeout = new TimeSpan(0, 0, 1);   //扫面线程超时事件
 
         /// <summary>
@@ -83,6 +85,8 @@ namespace ARPAttack
                     LocalMAC = address.Addr.hardwareAddress; // 本机MAC
                 }
             }
+
+            
 
             GetwayIP = _device.Interface.GatewayAddress; // 网关IP
             GetwayMAC = Resolve(GetwayIP); // 网关MAC
@@ -516,60 +520,6 @@ namespace ARPAttack
             }
             return macBytes;
 
-        }
-
-        /// <summary>
-        /// 获取请求数据包
-        /// </summary>
-        /// <returns></returns>
-        public byte[] getSenderPacket(byte[] yIP, byte[] mIP, byte[] yMAC)
-        {
-            //ARP请求数据包
-            byte[] packet = new byte[] {
-                //以太网首部
-                0xff, 0xff, 0xff, 0xff, 0xff, 0xff,//目标主机MAC地址      0
-                0x00, 0x23, 0xcd, 0x34, 0x20, 0x0e,//源主机MAC地址         6
-                0x08, 0x06,//帧类型（上层协议类型）ARP请求或应答          12
-                
-                //ARP帧
-                0x00, 0x01,//硬件类型 1表示以太网                         14
-                0x08, 0x00,//协议类型 0800表示IP地址                      16
-                0x06,//发送端以太网地址长度 6                             18
-                0x04,//发送端IP地址长度 4                                 19
-                0x00, 0x01,//OP 01请求 02应答                             20
-                0x00, 0x23, 0xcd, 0x34, 0x20, 0x0e, //发送端硬件地址      22
-                0xc0, 0xa8, 0x01, 0x01, 0xe0, 0xcb, //发送端协议（IP）地址28
-                0x00, 0x00, 0x00, 0x00, 0x00, 0x00,//目的端硬件地址       34
-                0x01, 0x63, 0x00, 0x00, 0x00, 0x00,//目的端协议（IP）地址 40
-
-                //剩余18位填充字节没有意义。
-                0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-            };
-
-            //循环替换IP
-            for (int i = 0; i < 4; i++)
-            {
-                packet[i + 28] = yIP[i];
-
-
-                packet[i + 40] = mIP[i];
-            }
-
-            for (int i = 0; i < yMAC[i]; i++)
-            {
-                MessageBox.Show(yMAC[i].ToString());
-            }
-
-            //循环替换MAC
-            for (int i = 0; i < 6; i++)
-            {
-                packet[i + 6] = yMAC[i];
-                packet[i + 22] = yMAC[i];
-            }
-
-            return packet;
         }
 
         /// <summary>

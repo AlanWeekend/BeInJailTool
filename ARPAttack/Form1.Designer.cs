@@ -64,6 +64,9 @@
             this.textBoxCKnifePasswd = new System.Windows.Forms.TextBox();
             this.textCKnifeURL = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtMask = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage4.SuspendLayout();
@@ -113,6 +116,7 @@
             // 
             this.txtGatewayMAC.Location = new System.Drawing.Point(291, 52);
             this.txtGatewayMAC.Name = "txtGatewayMAC";
+            this.txtGatewayMAC.ReadOnly = true;
             this.txtGatewayMAC.Size = new System.Drawing.Size(138, 21);
             this.txtGatewayMAC.TabIndex = 7;
             // 
@@ -120,6 +124,7 @@
             // 
             this.txtGatewayIP.Location = new System.Drawing.Point(291, 25);
             this.txtGatewayIP.Name = "txtGatewayIP";
+            this.txtGatewayIP.ReadOnly = true;
             this.txtGatewayIP.Size = new System.Drawing.Size(138, 21);
             this.txtGatewayIP.TabIndex = 6;
             // 
@@ -145,6 +150,7 @@
             // 
             this.txtLocalMAC.Location = new System.Drawing.Point(65, 52);
             this.txtLocalMAC.Name = "txtLocalMAC";
+            this.txtLocalMAC.ReadOnly = true;
             this.txtLocalMAC.Size = new System.Drawing.Size(138, 21);
             this.txtLocalMAC.TabIndex = 3;
             // 
@@ -152,6 +158,7 @@
             // 
             this.txtLocalIP.Location = new System.Drawing.Point(65, 25);
             this.txtLocalIP.Name = "txtLocalIP";
+            this.txtLocalIP.ReadOnly = true;
             this.txtLocalIP.Size = new System.Drawing.Size(138, 21);
             this.txtLocalIP.TabIndex = 2;
             // 
@@ -220,6 +227,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtMask);
+            this.groupBox1.Controls.Add(this.label13);
+            this.groupBox1.Controls.Add(this.listBox1);
             this.groupBox1.Controls.Add(this.btnScan);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.btnStart);
@@ -240,7 +250,7 @@
             // 
             // btnScan
             // 
-            this.btnScan.Location = new System.Drawing.Point(8, 215);
+            this.btnScan.Location = new System.Drawing.Point(333, 259);
             this.btnScan.Name = "btnScan";
             this.btnScan.Size = new System.Drawing.Size(75, 23);
             this.btnScan.TabIndex = 10;
@@ -251,7 +261,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(105, 259);
+            this.label6.Location = new System.Drawing.Point(117, 259);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(71, 12);
             this.label6.TabIndex = 9;
@@ -259,7 +269,7 @@
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(8, 254);
+            this.btnStart.Location = new System.Drawing.Point(20, 254);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(75, 23);
             this.btnStart.TabIndex = 8;
@@ -269,7 +279,7 @@
             // 
             // txtRecipientMAC
             // 
-            this.txtRecipientMAC.Location = new System.Drawing.Point(131, 160);
+            this.txtRecipientMAC.Location = new System.Drawing.Point(131, 196);
             this.txtRecipientMAC.Name = "txtRecipientMAC";
             this.txtRecipientMAC.ReadOnly = true;
             this.txtRecipientMAC.Size = new System.Drawing.Size(164, 21);
@@ -277,14 +287,14 @@
             // 
             // txtRecipientIP
             // 
-            this.txtRecipientIP.Location = new System.Drawing.Point(131, 117);
+            this.txtRecipientIP.Location = new System.Drawing.Point(131, 145);
             this.txtRecipientIP.Name = "txtRecipientIP";
             this.txtRecipientIP.Size = new System.Drawing.Size(164, 21);
             this.txtRecipientIP.TabIndex = 6;
             // 
             // txtSenderMAC
             // 
-            this.txtSenderMAC.Location = new System.Drawing.Point(131, 76);
+            this.txtSenderMAC.Location = new System.Drawing.Point(131, 94);
             this.txtSenderMAC.Name = "txtSenderMAC";
             this.txtSenderMAC.ReadOnly = true;
             this.txtSenderMAC.Size = new System.Drawing.Size(164, 21);
@@ -301,7 +311,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 163);
+            this.label5.Location = new System.Drawing.Point(6, 199);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(119, 12);
             this.label5.TabIndex = 3;
@@ -310,7 +320,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 120);
+            this.label4.Location = new System.Drawing.Point(6, 148);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(113, 12);
             this.label4.TabIndex = 2;
@@ -319,7 +329,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 79);
+            this.label3.Location = new System.Drawing.Point(6, 97);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(107, 12);
             this.label3.TabIndex = 1;
@@ -422,6 +432,32 @@
             this.label12.Size = new System.Drawing.Size(0, 29);
             this.label12.TabIndex = 1;
             // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 12;
+            this.listBox1.Location = new System.Drawing.Point(333, 51);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(415, 196);
+            this.listBox1.TabIndex = 11;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(331, 26);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(53, 12);
+            this.label13.TabIndex = 8;
+            this.label13.Text = "子网掩码";
+            // 
+            // txtMask
+            // 
+            this.txtMask.Location = new System.Drawing.Point(390, 23);
+            this.txtMask.Name = "txtMask";
+            this.txtMask.ReadOnly = true;
+            this.txtMask.Size = new System.Drawing.Size(179, 21);
+            this.txtMask.TabIndex = 12;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -486,6 +522,9 @@
         private System.Windows.Forms.RichTextBox richTextShell;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBoxCMD;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox txtMask;
     }
 }
 

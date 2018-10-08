@@ -27,10 +27,21 @@
 
 #### 更新日志
 
+v0.0.5<br>
+
+修复未安装WinPcap程序抛异常。<br>
+
+v 0.0.4<br>
+1.修复ARP欺骗不能获取到靶机MAC的小BUG<br>
+2.修复牢底坐穿刀执行cd ..切换路径命令后路径不换行的小BUG<br>
+<br><br>
 v 0.0.3<br>
 1.修复牢底坐穿ARP中的Npcap Loopback Adapter、Microsoft KM-TEST Loopback Adapter等虚拟网卡异常<br>
-2.新增牢底坐穿刀工具 --只做了PHP的POST请求的简易一句话木马和Windows10的CMD命令
-
+2.新增牢底坐穿刀工具 --只做了PHP的POST请求的简易一句话木马和Windows10的CMD命令<br>
+<br><br>
 v 0.0.2<br>
 1.优化使用，靶机MAC地址自动获取.<br>
-2.整合UI和操作类。
+2.整合UI和操作类。<br>
+<br><br>
+v 0.0.1<br>
+实现基本的ARP欺骗<br>
